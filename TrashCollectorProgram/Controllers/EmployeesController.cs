@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -43,8 +44,9 @@ namespace TrashCollectorProgram.Controllers
         {
             try
             {
-                string id = User.Identity.GetUserID();
                 // TODO: Add insert logic here
+                string id = User.Identity.GetUserId();                
+                employee.ApplicationId = id;
                 context.Employees.Add(employee);
                 context.SaveChanges();
                 return RedirectToAction("Index");
