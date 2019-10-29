@@ -3,37 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TrashCollectorProgram.Models;
 
 namespace TrashCollectorProgram.Controllers
 {
+    //Making employes private only to employees
+    //[Authorize(Roles = "Customer")]
+    
     public class EmployeesController : Controller
     {
+        ApplicationDbContext context;
+        public EmployeesController()
+        {
+            context = new ApplicationDbContext();
+        }
         // GET: Employees
         public ActionResult Index()
         {
-            return View();
+            return View(context.Employees.ToList());
         }
 
         // GET: Employees/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+            Employee employee = context.Employees.Where(e => e.Id == id).FirstOrDefault();
+            return View(employee);
         }
 
         // GET: Employees/Create
         public ActionResult Create()
         {
-            return View();
+            Employee employee = new Employee();
+            return View(employee);
         }
 
         // POST: Employees/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Employee employee)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                context.Employees.Add(employee);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -43,18 +55,25 @@ namespace TrashCollectorProgram.Controllers
         }
 
         // GET: Employees/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            Employee employee = context.Employees.Where(e => e.Id == id).FirstOrDefault();
+            return View(employee);
         }
 
         // POST: Employees/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Guid id, Employee employee)
         {
             try
             {
                 // TODO: Add update logic here
+                Employee employeeToEdit = context.Employees.Where(e => e.Id == id).FirstOrDefault();
+                employeeToEdit.Id = employee.Id;
+                employeeToEdit.zipcode = employee.zipcode;
+                context.SaveChanges();
+
+
 
                 return RedirectToAction("Index");
             }
@@ -65,19 +84,22 @@ namespace TrashCollectorProgram.Controllers
         }
 
         // GET: Employees/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            Employee employee = context.Employees.Where(e => e.Id == id).FirstOrDefault();
+            return View(employee);
         }
 
         // POST: Employees/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Guid id, Employee employee)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                Employee employeeToDelete = context.Employees.Where(e => e.Id == id).FirstOrDefault();
+                context.Employees.Remove(employeeToDelete);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
