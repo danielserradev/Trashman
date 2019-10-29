@@ -3,7 +3,7 @@ namespace TrashCollectorProgram.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMigration : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -11,7 +11,7 @@ namespace TrashCollectorProgram.Migrations
                 "dbo.Customers",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         firstName = c.String(),
                         lastName = c.String(),
                         streetAddress = c.String(),
@@ -91,7 +91,7 @@ namespace TrashCollectorProgram.Migrations
                 "dbo.Employees",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         zipcode = c.Int(nullable: false),
                         ApplicationId = c.String(maxLength: 128),
                     })

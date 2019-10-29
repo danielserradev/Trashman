@@ -23,7 +23,7 @@ namespace TrashCollectorProgram.Controllers
         }
 
         // GET: Customers/Details/5
-        public ActionResult Details(Guid id)
+        public ActionResult Details(int id)
         {
             Customer customer = context.Customers.Where(c => c.Id == id).FirstOrDefault();
             return View(customer);
@@ -54,7 +54,7 @@ namespace TrashCollectorProgram.Controllers
         }
 
         // GET: Customers/Edit/5
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(int id)
         {
             Customer customer = context.Customers.Where(c => c.Id == id).FirstOrDefault();
             return View(customer);
@@ -62,7 +62,7 @@ namespace TrashCollectorProgram.Controllers
 
         // POST: Customers/Edit/5
         [HttpPost]
-        public ActionResult Edit(Guid id, Customer customer)
+        public ActionResult Edit(int id, Customer customer)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace TrashCollectorProgram.Controllers
         }
 
         // GET: Customers/Delete/5
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(int id)
         {
             Customer customer = context.Customers.Where(c => c.Id == id).FirstOrDefault();
             return View();
@@ -98,7 +98,7 @@ namespace TrashCollectorProgram.Controllers
 
         // POST: Customers/Delete/5
         [HttpPost]
-        public ActionResult Delete(Guid id, Customer customer)
+        public ActionResult Delete(int id, Customer customer)
         {
             try
             {

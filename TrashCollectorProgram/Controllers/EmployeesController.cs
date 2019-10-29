@@ -24,7 +24,7 @@ namespace TrashCollectorProgram.Controllers
         }
 
         // GET: Employees/Details/5
-        public ActionResult Details(Guid id)
+        public ActionResult Details(int id)
         {
             Employee employee = context.Employees.Where(e => e.Id == id).FirstOrDefault();
             return View(employee);
@@ -43,6 +43,7 @@ namespace TrashCollectorProgram.Controllers
         {
             try
             {
+                string id = User.Identity.GetUserID();
                 // TODO: Add insert logic here
                 context.Employees.Add(employee);
                 context.SaveChanges();
@@ -55,7 +56,7 @@ namespace TrashCollectorProgram.Controllers
         }
 
         // GET: Employees/Edit/5
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(int id)
         {
             Employee employee = context.Employees.Where(e => e.Id == id).FirstOrDefault();
             return View(employee);
@@ -63,7 +64,7 @@ namespace TrashCollectorProgram.Controllers
 
         // POST: Employees/Edit/5
         [HttpPost]
-        public ActionResult Edit(Guid id, Employee employee)
+        public ActionResult Edit(int id, Employee employee)
         {
             try
             {
@@ -84,7 +85,7 @@ namespace TrashCollectorProgram.Controllers
         }
 
         // GET: Employees/Delete/5
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(int id)
         {
             Employee employee = context.Employees.Where(e => e.Id == id).FirstOrDefault();
             return View(employee);
@@ -92,7 +93,7 @@ namespace TrashCollectorProgram.Controllers
 
         // POST: Employees/Delete/5
         [HttpPost]
-        public ActionResult Delete(Guid id, Employee employee)
+        public ActionResult Delete(int id, Employee employee)
         {
             try
             {

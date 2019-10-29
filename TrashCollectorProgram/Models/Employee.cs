@@ -10,11 +10,13 @@ namespace TrashCollectorProgram.Models
     public class Employee
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public int zipcode { get; set; }
         
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
+
+
     }
 }
