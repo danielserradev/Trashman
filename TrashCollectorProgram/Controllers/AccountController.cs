@@ -456,12 +456,13 @@ namespace TrashCollectorProgram.Controllers
             }
         }
 
-        private ActionResult RedirectToLocal(string returnUrl)
+        private ActionResult RedirectToLocal(string returnUrl )
         {
             if (Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);
             }
+            
             return RedirectToAction("Index", "Home");
         }
 
