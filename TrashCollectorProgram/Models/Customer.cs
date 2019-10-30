@@ -34,6 +34,7 @@ namespace TrashCollectorProgram.Models
         public double balance { get; set; }
         
         public bool pickupConfirmed { get; set; }
+
         [Required]
         [Display(Name = "Pickup Day")]
         public DayOfWeek pickUpDay { get; set; }

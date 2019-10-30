@@ -26,7 +26,7 @@ namespace TrashCollectorProgram.Controllers
 
         //GET: Pickups in zipcode
         
-        public ActionResult GetPickups(int zipcode, Customer customer)
+        public ActionResult GetPickups(Customer customer)
         {
             var pickUpsInZipcode = context.Customers.Where(e => e.zipcode == customer.zipcode).ToList();
             return View(pickUpsInZipcode);

@@ -14,11 +14,12 @@ namespace TrashCollectorProgram.Controllers
         {
             context = new ApplicationDbContext();
         }
-        public ActionResult Index()
+        public ActionResult Index(int zipcode)
         {
             if (User.IsInRole("Employee"))
             {
-                return RedirectToAction("Index", "Employees");
+                //Employee emploeyy = context.Employees.Where(e => e.zipcode == zipcode).FirstOrDefault();
+                return RedirectToAction("GetPickups", "Employees", zipcode);
             }
             else if (User.IsInRole("Customer"))
             {
