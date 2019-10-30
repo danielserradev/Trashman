@@ -36,6 +36,9 @@
             @Html.DisplayNameFor(model => model.pickupConfirmed)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.pickUpDay)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.pickUpDate)
         </th>
         <th>
@@ -44,52 +47,55 @@
         <th>
             @Html.DisplayNameFor(model => model.endDate)
         </th>
-        
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.firstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.streetAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.city)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.stateCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.zipcode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.balance)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pickupConfirmed)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pickUpDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.startDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.endDate)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.firstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.streetAddress)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.city)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.stateCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.zipcode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.balance)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.pickupConfirmed)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.pickUpDay)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.pickUpDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.startDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.endDate)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
 }
 
 </table>

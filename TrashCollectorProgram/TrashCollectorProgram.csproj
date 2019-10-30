@@ -184,6 +184,22 @@
     <Compile Include="Migrations\201910291957152_initial.Designer.cs">
       <DependentUpon>201910291957152_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910301510389_required.cs" />
+    <Compile Include="Migrations\201910301510389_required.Designer.cs">
+      <DependentUpon>201910301510389_required.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910301524211_nulldatetime.cs" />
+    <Compile Include="Migrations\201910301524211_nulldatetime.Designer.cs">
+      <DependentUpon>201910301524211_nulldatetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910301614196_pickupday.cs" />
+    <Compile Include="Migrations\201910301614196_pickupday.Designer.cs">
+      <DependentUpon>201910301614196_pickupday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910301625317_enumdayofweek.cs" />
+    <Compile Include="Migrations\201910301625317_enumdayofweek.Designer.cs">
+      <DependentUpon>201910301625317_enumdayofweek.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -316,6 +332,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910291957152_initial.resx">
       <DependentUpon>201910291957152_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910301510389_required.resx">
+      <DependentUpon>201910301510389_required.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910301524211_nulldatetime.resx">
+      <DependentUpon>201910301524211_nulldatetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910301614196_pickupday.resx">
+      <DependentUpon>201910301614196_pickupday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910301625317_enumdayofweek.resx">
+      <DependentUpon>201910301625317_enumdayofweek.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
