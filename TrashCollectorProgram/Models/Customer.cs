@@ -35,6 +35,7 @@ namespace TrashCollectorProgram.Models
         
         public bool pickupConfirmed { get; set; }
         [Required]
+        [Display(Name = "Pickup Day")]
         public DayOfWeek pickUpDay { get; set; }
         
         [DataType(DataType.Date)]

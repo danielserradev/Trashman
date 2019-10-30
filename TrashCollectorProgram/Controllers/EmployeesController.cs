@@ -24,6 +24,13 @@ namespace TrashCollectorProgram.Controllers
             return View(context.Employees.ToList());
         }
 
+        //GET: Pickups in zipcode
+        
+        public ActionResult GetPickups(int zipcode, Customer customer)
+        {
+            var pickUpsInZipcode = context.Customers.Where(e => e.zipcode == customer.zipcode).ToList();
+            return View(pickUpsInZipcode);
+        }
         // GET: Employees/Details/5
         public ActionResult Details(int id)
         {
