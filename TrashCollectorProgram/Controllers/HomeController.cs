@@ -22,7 +22,7 @@ namespace TrashCollectorProgram.Controllers
             {
                 
                 Employee employee = context.Employees.Where(e => e.ApplicationId == userId).FirstOrDefault();
-                return RedirectToAction("GetPickups", "Employees", employee);
+                return RedirectToAction("GetPickupsToday", "Employees", employee);
             }
             else if (User.IsInRole("Customer"))
             {
