@@ -317,6 +317,7 @@
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\Employees\Delete.cshtml" />
     <Content Include="Views\Employees\GetPickups.cshtml" />
+    <Content Include="Views\GetPickupsToday.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,16 +15,19 @@ namespace TrashCollectorProgram.Controllers
         {
             context = new ApplicationDbContext();
         }
-        public ActionResult Index(int zipcode)
+        public ActionResult Index()
         {
+            string userId = User.Identity.GetUserId();
             if (User.IsInRole("Employee"))
             {
-                //Employee emploeyy = context.Employees.Where(e => e.zipcode == zipcode).FirstOrDefault();
-                return RedirectToAction("GetPickups", "Employees", zipcode);
+                
+                Employee employee = context.Employees.Where(e => e.ApplicationId == userId).FirstOrDefault();
+                return RedirectToAction("GetPickups", "Employees", employee);
             }
             else if (User.IsInRole("Customer"))
             {
-                return RedirectToAction("Index", "Customers");
+                Customer customer = context.Customers.Where(c => c.ApplicationId == userId).FirstOrDefault();
+                return RedirectToAction("Details", "Customers", customer);
             }
 
             return View();

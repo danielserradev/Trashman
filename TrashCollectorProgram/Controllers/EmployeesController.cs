@@ -23,12 +23,26 @@ namespace TrashCollectorProgram.Controllers
         {
             return View(context.Employees.ToList());
         }
-
+        public ActionResult GetPickupsToday(Customer customer)
+        {
+            DateTime today = DateTime.Today;
+            DayOfWeek day = DateTime.Today.DayOfWeek;
+            if (today.Equals(customer.pickUpDay))
+            {
+                return View();
+            }
+            return View(customer);
+        }
         //GET: Pickups in zipcode
         
-        public ActionResult GetPickups(Customer customer)
+        public ActionResult GetPickups(Employee employee)
         {
-            var pickUpsInZipcode = context.Customers.Where(e => e.zipcode == customer.zipcode).ToList();
+            
+
+
+            var pickUpsInZipcode = context.Customers.Where(e => e.zipcode == employee.zipcode).ToList();
+
+            
             return View(pickUpsInZipcode);
         }
         // GET: Employees/Details/5
@@ -56,7 +70,7 @@ namespace TrashCollectorProgram.Controllers
                 employee.ApplicationId = id;
                 context.Employees.Add(employee);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("GetPickups", "Employees", employee);
             }
             catch
             {

@@ -17,7 +17,7 @@ namespace TrashCollectorProgram.Controllers
         {
             context = new ApplicationDbContext();
         }
-
+        
         
         // GET: Customers
         public ActionResult Index()
@@ -53,7 +53,7 @@ namespace TrashCollectorProgram.Controllers
                 customer.ApplicationId = id;
                 context.Customers.Add(customer);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Customers", customer);
             }
             catch
             {

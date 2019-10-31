@@ -1,5 +1,11 @@
 ﻿@model TrashCollectorProgram.Models.Customer
 
+@{
+    ViewBag.Title = "GetPickupsToday";
+}
+
+<h2>GetPickupsToday</h2>
+
 <div>
     <h4>Customer</h4>
     <hr />
@@ -69,14 +75,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.pickUpDay)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.pickUpDay)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.pickUpDate)
         </dt>
 
@@ -100,7 +98,13 @@
             @Html.DisplayFor(model => model.endDate)
         </dd>
 
-        
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationId)
+        </dd>
 
     </dl>
 </div>
