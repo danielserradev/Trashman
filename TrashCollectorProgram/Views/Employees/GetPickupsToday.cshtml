@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<TrashCollectorProgram.Models.Customer>
 
 @{
-    ViewBag.Title = "GetPickups";
+    ViewBag.Title = "GetPickupsToday";
 }
 
-<h2>Pickups in your Zipcode</h2>
+<h2>GetPickupsToday</h2>
 
-@Html.ActionLink("GetPickupsToday", "GetPickupsToday")
-
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -53,8 +53,7 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
+@foreach (var item in Model) {
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.firstName)
@@ -86,6 +85,7 @@
     <td>
         @Html.DisplayFor(modelItem => item.pickUpDate)
     </td>
+
     <td>
         @Html.DisplayFor(modelItem => item.startDate)
     </td>
@@ -95,8 +95,12 @@
     <td>
         @Html.DisplayFor(modelItem => item.ApplicationId)
     </td>
-
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
 </tr>
-    }
+}
 
 </table>

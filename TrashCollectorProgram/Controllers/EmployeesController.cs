@@ -23,26 +23,20 @@ namespace TrashCollectorProgram.Controllers
         {
             return View(context.Employees.ToList());
         }
-        public ActionResult GetPickupsToday(Customer customer)
+        public ActionResult GetPickupsToday()
         {
             DateTime today = DateTime.Today;
             DayOfWeek day = DateTime.Today.DayOfWeek;
-            if (today.Equals(customer.pickUpDay))
-            {
-                return View();
-            }
-            return View(customer);
+            var customersInDay = context.Customers.Where(c => c.pickUpDay == day || c.pickUpDate == today).ToList();
+            var notSuspendedPickup = customersInDay.Where(c => c.startDate > today || c.startDate == null && c.endDate < today || c.startDate == null).ToList();
+            
+            return View(notSuspendedPickup);
         }
         //GET: Pickups in zipcode
         
         public ActionResult GetPickups(Employee employee)
         {
-            
-
-
-            var pickUpsInZipcode = context.Customers.Where(e => e.zipcode == employee.zipcode).ToList();
-
-            
+            var pickUpsInZipcode = context.Customers.Where(e => e.zipcode == employee.zipcode).ToList();            
             return View(pickUpsInZipcode);
         }
         // GET: Employees/Details/5

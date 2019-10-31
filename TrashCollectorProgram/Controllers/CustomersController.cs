@@ -85,6 +85,7 @@ namespace TrashCollectorProgram.Controllers
                 editedCustomer.zipcode = customer.zipcode;
                 editedCustomer.balance = customer.balance;
                 editedCustomer.pickupConfirmed = customer.pickupConfirmed;
+                editedCustomer.pickUpDay = customer.pickUpDay;
                 editedCustomer.pickUpDate = customer.pickUpDate;
                 editedCustomer.startDate = customer.startDate;
                 editedCustomer.endDate = customer.endDate;
