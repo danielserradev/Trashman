@@ -29,9 +29,11 @@ namespace TrashCollectorProgram.Models
         [Required]
         [Display(Name = "ZIP Code")]
         public int zipcode { get; set; }
-        
+
+        [DataType(DataType.Currency)]
         [Display(Name = "Balance")]
-        public double balance { get; set; }
+        public decimal balance { get; set; }
+
         
         public bool pickupConfirmed { get; set; }
 

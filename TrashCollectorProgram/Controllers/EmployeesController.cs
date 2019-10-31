@@ -37,7 +37,7 @@ namespace TrashCollectorProgram.Controllers
             {
                 // TODO: Add update logic here
                 Customer customerToEdit = context.Customers.Where(e => e.Id == id).FirstOrDefault();
-                customerToEdit.balance = customer.Id;
+                customerToEdit.balance = customer.balance;
                 customerToEdit.pickupConfirmed = customer.pickupConfirmed;
                 context.SaveChanges();
 
