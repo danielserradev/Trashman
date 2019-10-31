@@ -33,15 +33,20 @@ namespace TrashCollectorProgram.Controllers
         [HttpPost]
         public ActionResult ConfirmPickupAndEditBalance(int id, Customer customer)
         {
+            decimal charge = 10;
             try
             {
                 // TODO: Add update logic here
                 Customer customerToEdit = context.Customers.Where(e => e.Id == id).FirstOrDefault();
-                customerToEdit.balance = customer.balance;
+                
                 customerToEdit.pickupConfirmed = customer.pickupConfirmed;
+                
                 context.SaveChanges();
-
-
+                if (customerToEdit.pickupConfirmed == true)
+                {
+                    customerToEdit.balance += charge;
+                }
+                context.SaveChanges();
 
                 return RedirectToAction("GetPickupsToday");
             }

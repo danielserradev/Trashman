@@ -6,7 +6,7 @@
 
 <h2>Pickups in your Zipcode</h2>
 
-@Html.ActionLink("GetPickupsToday", "GetPickupsToday")
+@Html.ActionLink("Your Pickups Today", "GetPickupsToday")
 
 
 <table class="table">
@@ -47,9 +47,7 @@
         <th>
             @Html.DisplayNameFor(model => model.endDate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicationId)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -92,9 +90,7 @@
     <td>
         @Html.DisplayFor(modelItem => item.endDate)
     </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ApplicationId)
-    </td>
+    
 
 </tr>
     }

@@ -90,7 +90,7 @@ namespace TrashCollectorProgram.Controllers
                 editedCustomer.startDate = customer.startDate;
                 editedCustomer.endDate = customer.endDate;
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home" );
             }
             catch
             {

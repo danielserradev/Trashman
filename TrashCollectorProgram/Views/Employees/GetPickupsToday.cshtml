@@ -4,11 +4,9 @@
     ViewBag.Title = "GetPickupsToday";
 }
 
-<h2>GetPickupsToday</h2>
+<h2>Your Pickups For Today</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -96,7 +94,7 @@
         @Html.DisplayFor(modelItem => item.ApplicationId)
     </td>
     <td>
-        @Html.ActionLink("ConfirmPickupAndEditBalance", "ConfirmPickupAndEditBalance", new { id = item.Id }) 
+        @Html.ActionLink("Confirm Pickup", "ConfirmPickupAndEditBalance", new { id = item.Id }) 
         
 </tr>
 }
