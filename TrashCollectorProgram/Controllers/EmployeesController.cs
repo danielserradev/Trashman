@@ -23,6 +23,34 @@ namespace TrashCollectorProgram.Controllers
         {
             return View(context.Employees.ToList());
         }
+        public ActionResult ConfirmPickupAndEditBalance(int id)
+        {
+            Customer customer = context.Customers.Where(c => c.Id == id).FirstOrDefault();
+
+
+            return View(customer);
+        }
+        [HttpPost]
+        public ActionResult ConfirmPickupAndEditBalance(int id, Customer customer)
+        {
+            try
+            {
+                // TODO: Add update logic here
+                Customer customerToEdit = context.Customers.Where(e => e.Id == id).FirstOrDefault();
+                customerToEdit.balance = customer.Id;
+                customerToEdit.pickupConfirmed = customer.pickupConfirmed;
+                context.SaveChanges();
+
+
+
+                return RedirectToAction("GetPickupsToday");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
         public ActionResult GetPickupsToday()
         {
             DateTime today = DateTime.Today;
