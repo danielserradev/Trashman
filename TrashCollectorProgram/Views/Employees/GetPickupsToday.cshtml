@@ -5,7 +5,14 @@
 }
 
 <h2>Your Pickups For Today</h2>
-
+@Html.ActionLink("GetMonday", "GetMonday") |
+@Html.ActionLink("GetTuesday", "GetTuesday") |
+@Html.ActionLink("GetWednesday", "GetWednesday") |
+@Html.ActionLink("GetThursday", "GetThursday") |
+@Html.ActionLink("GetFriday", "GetFriday") |
+@Html.ActionLink("GetSaturday", "GetSaturday") |
+@Html.ActionLink("GetSunday", "GetSunday") |
+@Html.ActionLink("GetPickups", "GetPickups")
 
 <table class="table">
     <tr>
@@ -45,9 +52,7 @@
         <th>
             @Html.DisplayNameFor(model => model.endDate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicationId)
-        </th>
+
         <th></th>
     </tr>
 
@@ -91,9 +96,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.endDate)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApplicationId)
-            </td>
+
             <td>
                 @Html.ActionLink("Confirm Pickup", "ConfirmPickupAndEditBalance", new { id = item.Id })
 

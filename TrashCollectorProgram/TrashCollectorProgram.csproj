@@ -323,6 +323,13 @@
     <Content Include="Views\Employees\GetPickups.cshtml" />
     <Content Include="Views\Employees\GetPickupsToday.cshtml" />
     <Content Include="Views\Employees\ConfirmPickupAndEditBalance.cshtml" />
+    <Content Include="Views\Employees\GetMonday.cshtml" />
+    <Content Include="Views\Employees\GetTuesday.cshtml" />
+    <Content Include="Views\Employees\GetWednesday.cshtml" />
+    <Content Include="Views\Employees\GetThursday.cshtml" />
+    <Content Include="Views\Employees\GetFriday.cshtml" />
+    <Content Include="Views\Employees\GetSaturday.cshtml" />
+    <Content Include="Views\Employees\GetSunday.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

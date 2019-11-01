@@ -65,8 +65,65 @@ namespace TrashCollectorProgram.Controllers
             
             return View(notSuspendedPickup);
         }
+        public ActionResult GetMonday()
+        {
+            DateTime today = DateTime.Today;
+            DayOfWeek day = DateTime.Today.DayOfWeek;
+            var mondayCustomer = context.Customers.Where(c => c.pickUpDay == DayOfWeek.Monday || c.pickUpDate == today).ToList();
+            var notSuspendedOnMonday = mondayCustomer.Where(c => c.startDate > today || c.startDate == null && c.endDate < today || c.startDate == null).ToList();
+            return View(notSuspendedOnMonday);
+        }
+        public ActionResult GetTuesday()
+        {
+            DateTime today = DateTime.Today;
+            DayOfWeek day = DateTime.Today.DayOfWeek;
+            var tuesdayCustomer = context.Customers.Where(c => c.pickUpDay == DayOfWeek.Tuesday || c.pickUpDate == today).ToList();
+            var notSuspendedOnTuesday = tuesdayCustomer.Where(c => c.startDate > today || c.startDate == null && c.endDate < today || c.startDate == null).ToList();
+            return View(notSuspendedOnTuesday);
+        }
+        public ActionResult GetWednesday()
+        {
+            DateTime today = DateTime.Today;
+            DayOfWeek day = DateTime.Today.DayOfWeek;
+            var wednesdayCustomer = context.Customers.Where(c => c.pickUpDay == DayOfWeek.Wednesday || c.pickUpDate == today).ToList();
+            var notSuspendedOnWednesday = wednesdayCustomer.Where(c => c.startDate > today || c.startDate == null && c.endDate < today || c.startDate == null).ToList();
+            return View(notSuspendedOnWednesday);
+        }
+        public ActionResult GetThursday()
+        {
+            DateTime today = DateTime.Today;
+            DayOfWeek day = DateTime.Today.DayOfWeek;
+            var thursdayCustomer = context.Customers.Where(c => c.pickUpDay == DayOfWeek.Thursday || c.pickUpDate == today).ToList();
+            var notSuspendedOnThursday = thursdayCustomer.Where(c => c.startDate > today || c.startDate == null && c.endDate < today || c.startDate == null).ToList();
+            return View(notSuspendedOnThursday);
+        }
+        public ActionResult GetFriday()
+        {
+            DateTime today = DateTime.Today;
+            DayOfWeek day = DateTime.Today.DayOfWeek;
+            var fridayCustomer = context.Customers.Where(c => c.pickUpDay == DayOfWeek.Friday || c.pickUpDate == today).ToList();
+            var notSuspendedOnFriday = fridayCustomer.Where(c => c.startDate > today || c.startDate == null && c.endDate < today || c.startDate == null).ToList();
+            return View(notSuspendedOnFriday);
+        }
+        public ActionResult GetSaturday()
+        {
+            DateTime today = DateTime.Today;
+            DayOfWeek day = DateTime.Today.DayOfWeek;
+            var saturdayCustomer = context.Customers.Where(c => c.pickUpDay == DayOfWeek.Saturday || c.pickUpDate == today).ToList();
+            var notSuspendedOnSaturday = saturdayCustomer.Where(c => c.startDate > today || c.startDate == null && c.endDate < today || c.startDate == null).ToList();
+            return View(notSuspendedOnSaturday);
+        }
+        public ActionResult GetSunday()
+        {
+            DateTime today = DateTime.Today;
+            DayOfWeek day = DateTime.Today.DayOfWeek;
+            var sundayCustomer = context.Customers.Where(c => c.pickUpDay == DayOfWeek.Sunday || c.pickUpDate == today).ToList();
+            var notSuspendedOnSunday = sundayCustomer.Where(c => c.startDate > today || c.startDate == null && c.endDate < today || c.startDate == null).ToList();
+            return View(notSuspendedOnSunday);
+        }
+
         //GET: Pickups in zipcode
-        
+
         public ActionResult GetPickups(Employee employee)
         {
             var pickUpsInZipcode = context.Customers.Where(e => e.zipcode == employee.zipcode).ToList();            
