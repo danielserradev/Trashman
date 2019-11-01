@@ -99,8 +99,9 @@
 
             <td>
                 @Html.ActionLink("Confirm Pickup", "ConfirmPickupAndEditBalance", new { id = item.Id })
+                @Html.ActionLink("See Location", "GeoLocate", new { id = item.Id })
 
-        </tr>
+</tr>
 
     }
 

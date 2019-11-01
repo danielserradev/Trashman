@@ -167,6 +167,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIKeys.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -330,6 +331,7 @@
     <Content Include="Views\Employees\GetFriday.cshtml" />
     <Content Include="Views\Employees\GetSaturday.cshtml" />
     <Content Include="Views\Employees\GetSunday.cshtml" />
+    <Content Include="Views\Employees\GeoLocate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

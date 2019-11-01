@@ -22,6 +22,21 @@ namespace TrashCollectorProgram.Controllers
         public ActionResult Index()
         {
             return View(context.Employees.ToList());
+        } 
+        public ActionResult GeoLocate(int id)
+        {
+            string concatAddress = "";
+            Customer customer = context.Customers.Where(c => c.Id == id).FirstOrDefault();
+
+            concatAddress = customer.streetAddress;
+            concatAddress += " ";
+            concatAddress += customer.city;
+            concatAddress += " ";
+            concatAddress += customer.stateCode;
+            var url = string.Format("https://maps.googleapis.com/maps/api/geocode/json?address={0}+{1}+{2}+{3}+{4}&key={5}", customer.streetAddress, customer.city, ", ", customer.stateCode, customer.zipcode, APIKeys.GeoCodeApi);
+            
+
+            return View(customer);
         }
         public ActionResult ConfirmPickupAndEditBalance(int id)
         {
