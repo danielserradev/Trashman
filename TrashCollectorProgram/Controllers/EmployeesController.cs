@@ -5,6 +5,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TrashCollectorProgram.Models;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace TrashCollectorProgram.Controllers
 {
@@ -18,26 +22,35 @@ namespace TrashCollectorProgram.Controllers
         {
             context = new ApplicationDbContext();
         }
+        
         // GET: Employees
         public ActionResult Index()
         {
             return View(context.Employees.ToList());
         } 
-        public ActionResult GeoLocate(int id)
+        public async Task<ActionResult> GeoLocate(int id)
         {
-            string concatAddress = "";
-            Customer customer = context.Customers.Where(c => c.Id == id).FirstOrDefault();
-
-            concatAddress = customer.streetAddress;
-            concatAddress += " ";
-            concatAddress += customer.city;
-            concatAddress += " ";
-            concatAddress += customer.stateCode;
-            var url = string.Format("https://maps.googleapis.com/maps/api/geocode/json?address={0}+{1}+{2}+{3}+{4}&key={5}", customer.streetAddress, customer.city, ", ", customer.stateCode, customer.zipcode, APIKeys.GeoCodeApi);
             
+            Customer customer = context.Customers.Where(c => c.Id == id).FirstOrDefault();
+            string requesturl = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+            string customerAddress = System.Web.HttpUtility.UrlEncode(
+                customer.streetAddress + " " +
+                customer.city + " " +
+                customer.stateCode + " " +
+                customer.zipcode);
+
+            string apiKey = APIKeys.GeoCodeApi;
+            
+            
+            HttpClient client = new HttpClient();
+            var response = await client.GetStringAsync(requesturl + customerAddress + apiKey);
+            JObject map = JObject.Parse(response);
+            customer.lat = (float)map["results"][0]["geometry"]["location"]["lat"];
+            customer.lng = (float)map["results"][0]["geometry"]["location"]["lng"];
+
 
             return View(customer);
-        }
+        } 
         public ActionResult ConfirmPickupAndEditBalance(int id)
         {
             Customer customer = context.Customers.Where(c => c.Id == id).FirstOrDefault();

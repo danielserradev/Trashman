@@ -36,6 +36,9 @@ namespace TrashCollectorProgram.Models
         [Display(Name = "ZIP Code")]
         public int zipcode { get; set; }
 
+        public float lat { get; set; }
+        public float lng { get; set; }
+
         [DataType(DataType.Currency)]
         [Display(Name = "Balance")]
         public decimal balance { get; set; }
